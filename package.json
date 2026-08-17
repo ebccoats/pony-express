@@ -13,11 +13,13 @@
     "@esotericsoftware/spine-pixi-v8": "^4.2.74",
     "@pixi/sound": "^6.0.1",
     "@pixi/ui": "^2.2.2",
+    "gpu-tex-enc": "^1.1.0",
     "motion": "^12.4.7",
-    "pixi.js": "^8.8.1"
+    "pixi.js": "^8.8.1",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
-    "@assetpack/core": "^1.4.0",
+    "@assetpack/core": "^1.7.0",
     "@eslint/js": "^9.21.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.1.2",
@@ -26,5 +28,19 @@
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.25.0",
     "vite": "^6.2.0"
+  },
+  "overrides": {
+    "minimatch": "^10.2.3",
+    "sharp": "^0.35.3",
+    "@assetpack/core": {
+      "minimatch": "^10.2.3",
+      "sharp": "^0.35.3",
+      "gpu-tex-enc": {
+        "sharp": "^0.35.3"
+      }
+    },
+    "gpu-tex-enc": {
+      "sharp": "^0.35.3"
+    }
   }
 }
