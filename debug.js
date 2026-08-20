@@ -1,13 +1,12 @@
 // Thanks cursor
+import { DualShock4 } from "webhid-ds4"
+import { playRumble, gallop, fastGallop, slowGallop } from './src/engine/utils/horse-haptics.js'
+
+const DS4 = new DualShock4()
+
 export function debugStuff(app, container) {
 
     const bounds = container.getLocalBounds();
-
-    app.renderer.resolution = 1;
-    app.renderer.resize(window.innerWidth, window.innerHeight);
-    window.addEventListener("resize", () => {
-        app.renderer.resize(window.innerWidth, window.innerHeight);
-    });
 
     const fit = Math.min(
         window.innerWidth / bounds.width,
@@ -155,6 +154,73 @@ export function debugStuff(app, container) {
             );
         });
     }
+
+
+    // Controls Panel
+    const controlsPanel = document.createElement("div");
+    controlsPanel.style.cssText = `
+        position: fixed;
+        top: 50px;
+        left: 10px;
+        width: 220px;
+        z-index: 1000;
+        padding: 8px;
+        overflow: auto;
+        background: #000;
+        color: #0f0;
+        font: 12px/1.4 monospace;
+        user-select: none;
+        border: solid 1px #0f0;
+    `;
+    document.body.appendChild(controlsPanel);
+    const connectButton = document.createElement("button")
+    connectButton.innerText= "Connect controller"
+    controlsPanel.appendChild(connectButton)
+
+    const status = document.createElement("div")
+    status.textContent = "Game controller connected?"
+    controlsPanel.appendChild(status)
+
+        // The WebHID device can only be requested upon user interaction
+    connectButton.addEventListener('click', async () => {
+      // This will request the WebHID device and initialize the controller
+      await DS4.init()
+      // Define a custom lightbar color
+      await DS4.lightbar.setColorRGB(170, 255, 0)
+
+        // Define a rumble
+await playRumble(DS4, [...gallop, ...gallop, ...gallop, ...gallop, ...gallop])
+await playRumble(DS4, [...fastGallop, ...fastGallop, ...fastGallop, ...fastGallop, ...fastGallop, ...fastGallop])
+await playRumble(DS4, [...slowGallop, ...slowGallop, ...slowGallop, ...slowGallop, ...slowGallop, ...slowGallop, ])
+      // The state object is updated periodically with the current controller state
+        console.log(DS4.state.interface)
+        const leftStick = document.createElement("div")
+        controlsPanel.appendChild(leftStick)
+        const rightStick = document.createElement("div")
+        controlsPanel.appendChild(rightStick)
+        const gyro = document.createElement("div")
+        controlsPanel.appendChild(gyro)
+
+        // translate gyro 65000 numbers into someting useful
+        function toInt16(uint16Value) {
+            return (uint16Value << 16) >> 16
+        }
+
+      function logInputs () {
+
+          const gyroX = toInt16(DS4.state.axes.gyroX)
+          const gyroY = toInt16(DS4.state.axes.gyroY)
+          const gyroZ = toInt16(DS4.state.axes.gyroZ)
+          
+        requestAnimationFrame(logInputs)
+        leftStick.innerText = `Left Stick: ${DS4.state.axes.leftStickX}, ${DS4.state.axes.leftStickY}`
+        rightStick.innerText = `Right Stick: X:${DS4.state.axes.rightStickX}, Y:${DS4.state.axes.rightStickY}`
+          gyro.innerText = `Gyro: X:${gyroX}, Y: ${gyroY}, Z: ${gyroZ}`
+      }
+      logInputs()
+    })
+
+
 
     canvas.addEventListener("dblclick", (e) => {
         const { x, y } = pngPixelAt(e);

@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@esotericsoftware/spine-pixi-v8": "^4.2.74",
+    "@kayahr/aseprite": "^2.1.0",
     "@pixi/sound": "^6.0.1",
     "@pixi/ui": "^2.2.2",
     "gpu-tex-enc": "^1.1.0",
     "motion": "^12.4.7",
     "pixi.js": "^8.8.1",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.3",
+    "webhid-ds4": "^1.0.5"
   },
   "devDependencies": {
     "@assetpack/core": "^1.7.0",

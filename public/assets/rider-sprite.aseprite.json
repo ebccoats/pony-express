@@ -1,0 +1,138 @@
+{ "frames": {
+   "rider 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 1.aseprite": {
+    "frame": { "x": 44, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 2.aseprite": {
+    "frame": { "x": 88, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 3.aseprite": {
+    "frame": { "x": 132, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 4.aseprite": {
+    "frame": { "x": 176, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 5.aseprite": {
+    "frame": { "x": 220, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 6.aseprite": {
+    "frame": { "x": 264, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 7.aseprite": {
+    "frame": { "x": 308, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 8.aseprite": {
+    "frame": { "x": 352, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 9.aseprite": {
+    "frame": { "x": 396, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 10.aseprite": {
+    "frame": { "x": 440, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 11.aseprite": {
+    "frame": { "x": 484, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 12.aseprite": {
+    "frame": { "x": 528, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   },
+   "rider 13.aseprite": {
+    "frame": { "x": 572, "y": 0, "w": 44, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 44, "h": 44 },
+    "sourceSize": { "w": 44, "h": 44 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.18.2-arm64",
+  "image": "rider-sprite.png",
+  "format": "RGBA8888",
+  "size": { "w": 616, "h": 44 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "runRight", "from": 0, "to": 1, "direction": "forward", "color": "#000000ff" },
+   { "name": "runLeft", "from": 2, "to": 3, "direction": "forward", "color": "#000000ff" },
+   { "name": "runFwRight", "from": 4, "to": 5, "direction": "forward", "color": "#000000ff" },
+   { "name": "throwFwRight", "from": 6, "to": 7, "direction": "forward", "color": "#000000ff" },
+   { "name": "runFwLeft", "from": 8, "to": 9, "direction": "forward", "color": "#000000ff" },
+   { "name": "throwFwLeft", "from": 10, "to": 11, "direction": "forward", "color": "#000000ff" },
+   { "name": "crash", "from": 12, "to": 12, "direction": "forward", "color": "#000000ff" },
+   { "name": "victory", "from": 13, "to": 13, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
