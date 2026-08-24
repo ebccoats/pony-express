@@ -1,7 +1,8 @@
 // description: This example demonstrates how to use a Container to group and manipulate multiple sprites
-import { Application, Assets, Container, Sprite } from 'pixi.js';
+import { Application, Assets, Container, Sprite, Graphics } from 'pixi.js';
 import { debugStuff } from './debug.js'
 import './src/engine/utils/aseprite-loader.ts'
+import { HitLine } from './src/engine/utils/hitLine.js'
 import { scaleAnimationSpeed } from './src/engine/utils/animation.js';
 import { KEY_MAP, createInput, keyboard } from './src/engine/utils/inputs.js'
 
@@ -17,6 +18,7 @@ let input
 
 const container = new Container();
 const player = new Container();
+player.label = 'player'
 
 const screenWidth = 256
 const screenHeight = 240
@@ -71,6 +73,9 @@ async function init() {
     background.label = "background"
     container.addChild(background)
 
+    let obstacle = new HitLine(233, 5608, 278, 5608, "fence")
+    container.addChild(obstacle)
+
     // position the container at the start of the scroll
     container.x = 0
     container.y = -(texture.height - screenHeight)
@@ -82,9 +87,13 @@ async function init() {
     const riderSheet = await Assets.load('./assets/rider-sprite.aseprite.json')
     const rider = riderSheet.createAnimatedSprite('runFwRight')
     scaleAnimationSpeed(rider, 0.5)
-    rider.anchor.set(0.5)
     rider.play()
     player.addChild(rider)
+    // debug for player collision
+    let playerObstacle = new HitLine(0 + (rider.width/4), rider.height - (rider.height/4), rider.width - (rider.width / 4), rider.height / 3, "playerWall")
+    player.addChild(playerObstacle)
+    playerObstacle.debug() // debug function makes red line along collision line
+
 
     container.addChild(player)
     player.x = screenWidth - playerPositionFromRight
@@ -98,7 +107,7 @@ async function init() {
     } else {
 
         // Debug stuff here
-        debugStuff(app, container)
+        debugStuff(app, container, player)
     }
 
 }
@@ -131,6 +140,18 @@ const update = (time) => {
         // keep player at the correct spot onscreen
         player.x = player.x - containerSpeedX + (input.moveX * playerSpeedX) 
         player.y = player.y - containerSpeedY
+
+        // check if player has collided with a single fence
+        let collide = player.getChildByLabel('playerWall')
+        let translatedLine = collide.globalCoords(container, player)
+
+        let fence = container.getChildByLabel('fence')
+        if (fence.checkCollision(translatedLine)) {
+            console.log("collision between player and fence")
+
+        }
+
+
 
         // if (input.throwPressed) throwLetter()
 

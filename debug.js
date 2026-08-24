@@ -1,6 +1,8 @@
 // Thanks cursor
 import { DualShock4 } from "webhid-ds4"
 import { playRumble, gallop, fastGallop, slowGallop } from './src/engine/utils/horse-haptics.js'
+import { Point, Graphics } from 'pixi.js'
+import { HitLine } from './src/engine/utils/hitLine.js'
 
 const DS4 = new DualShock4()
 
@@ -18,6 +20,24 @@ export function debugStuff(app, container) {
 
     const canvas = app.canvas;
     canvas.style.cursor = "default";
+
+
+    let sp = new Point(288, 5535)
+    let ep = new Point(328, 5495)
+    let line = new HitLine(288, 5535, 328, 5495)
+    line.debug()
+    // line
+    //     .moveTo(288, 5535)
+    //     .lineTo(328, 5495)
+    //     .stroke( { width: 2, color: 0xff0000 })
+    container.addChild(line)
+        
+    let obstacle = new HitLine(233, 5608, 278, 5608)
+    obstacle.label = "fence"
+
+
+    
+
 
     let focusX = bounds.width / 2;
     let focusY = bounds.height / 2;
