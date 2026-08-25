@@ -66,7 +66,7 @@ async function init() {
     app.stage.addChild(container);
 
     // Load the background texture
-    const texture = await Assets.load('./assets/PaperboyMapBG.png');
+    const texture = await Assets.load('./assets/PonyExpressMapBG.png');
     texture.source.scaleMode = "nearest"
 
     const background = new Sprite(texture)
